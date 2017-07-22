@@ -1,0 +1,28 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Navbar w/ text</a>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#" [routerLink]="'home'" [routerLinkActive]="'active'">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" [routerLink]="'precios'" [routerLinkActive]="'active'">Precios</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" [routerLink]="'protegida'" [routerLinkActive]="'active'" *ngIf="auth.isAuthenticated()">Protegida</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <button *ngIf="!auth.isAuthenticated()" (click)="login()" type="button" class="btn btn-sm btn-default">
+        Login
+      </button>
+      <button *ngIf="auth.isAuthenticated()" (click)="salir()" type="button" class="btn  btn-sm btn-default">
+      Salir
+      </button>
+    </span>
+  </div>
+</nav>
